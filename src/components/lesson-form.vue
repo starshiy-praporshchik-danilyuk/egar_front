@@ -25,9 +25,8 @@ export default {
     save: function (){
       var lesson = {theme: this.name, link: this.link};
       axios.post('http://localhost:8081/teacher/lessons', lesson)
-      .then(response => console.log(response))
-      /*.then(data => {this.props.lessons.push(data)})*/;
-    }
+      .then(response => this.$emit("pushLesson", response.data));
+    },
   }
 }
 </script>

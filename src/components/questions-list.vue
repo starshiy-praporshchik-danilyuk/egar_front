@@ -5,7 +5,7 @@
         <td v-for="question in questions" :key="question.id">{{question.phrasing}}</td>
       </tr>
     </table>
-    <question-form :id_lesson="id_lesson"/>
+    <question-form :id_lesson="id_lesson" @pushQuestion="pushQuestion"/>
   </div>
 </template>
 
@@ -26,6 +26,11 @@ export default {
   data() {
     return {
       questions: []
+    }
+  },
+  methods: {
+    pushQuestion(question){
+      this.questions.push(question);
     }
   }
 }

@@ -20,7 +20,7 @@ export default {
     save: function (){
       var question = {lesson: this.id_lesson, phrasing: this.phrasing};
       axios.post('http://localhost:8081/teacher/questions', question)
-          .then(response => console.log(response.data));
+          .then(response => this.$emit("pushQuestion", response.data));
     }
   }
 }
