@@ -1,15 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <lessons-list :lessons="lessons" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LessonsList from './components/lessons-list.vue'
+import axios from "axios";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    LessonsList
+  },
+  data: function() {
+    return {
+      lessons: []
+  };
+},
+  created() {
+    axios.get('http://localhost:8081/teacher/lessons')
+        .then(response => this.lessons = response.data);
   }
 }
 </script>
