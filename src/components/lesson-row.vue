@@ -1,5 +1,6 @@
 <template>
-  <tr><td>{{ lesson.theme }}</td>
+  <tr>
+    <td>{{ lesson.theme }}</td>
     <td>{{ new Date(lesson.lesDate).toLocaleDateString() }}</td>
     <td><input type="button" @click="sendLessonId(lesson.id)" value="Открыть"/></td>
   </tr>
