@@ -5,7 +5,7 @@
         <td v-for="question in questions" :key="question.id">{{question.phrasing}}</td>
       </tr>
     </table>
-    <question-form :id_lesson="id_lesson" @pushQuestion="pushQuestion"/>
+    <question-form :id_lesson="lesson" @pushQuestion="pushQuestion"/>
   </div>
 </template>
 
@@ -16,12 +16,18 @@ import QuestionForm from "./question-form";
 export default {
   name: "questions-list",
   components: {QuestionForm},
-  props: ['id_lesson'],
-  watch: {
-    id_lesson: function (){
-      axios.get('http://localhost:8081/teacher/questions/' + this.id_lesson)
+  props: ['lesson'],
+  /*watch: {
+    lesson: function (){
+      console.log(this.lesson);
+      axios.get('http://localhost:8081/teacher/questions/' + this.lesson)
           .then(result => this.questions = result.data)
     }
+  },*/
+  created() {
+    console.log(this.lesson);
+    axios.get('http://localhost:8081/teacher/questions/' + this.lesson)
+        .then(result => this.questions = result.data)
   },
   data() {
     return {

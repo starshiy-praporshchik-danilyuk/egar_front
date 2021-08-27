@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import lessonsList from '../components/lessons-list'
 import questionsList from '../components/questions-list'
+import studentsList from '../components/students-list'
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     name: 'questions',
     component: questionsList,
     props: true
+  },
+  {
+    path: '/students',
+    name: 'students',
+    component: studentsList
   }
 ]
 

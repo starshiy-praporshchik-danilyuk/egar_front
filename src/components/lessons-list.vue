@@ -1,10 +1,13 @@
 <template>
-  <div>
+  <div align="center">
     <table>
       <tr><td>Тема</td><td>Дата</td><td>Вопросы</td></tr>
       <lesson-row v-for="lesson in lessons" :key="lesson.id" :lesson="lesson" />
     </table>
     <lesson-form :lessons="lessons" @pushLesson="pushLesson"/>
+    <router-link :to="{name: 'students'}">
+      <td><input type="button" value="Список студентов"/></td>
+    </router-link>
   </div>
 </template>
 
