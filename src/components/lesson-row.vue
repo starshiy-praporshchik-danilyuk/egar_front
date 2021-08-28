@@ -2,7 +2,7 @@
   <tr>
     <td>{{ lesson.theme }}</td>
     <td>{{ new Date(lesson.lesDate).toLocaleDateString() }}</td>
-    <router-link :to="{name: 'questions', params: {lesson: lesson.id}}">
+    <router-link :to="{name: 'questions', params: {lessonId: lesson.id, theme: lesson.theme}}">
 <!--    <td><input type="button" @click="sendLessonId(lesson.id)" value="Открыть"/></td>-->
       <td><input type="button" value="Открыть"/></td>
     </router-link>

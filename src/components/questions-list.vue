@@ -1,11 +1,14 @@
 <template>
   <div>
+    <h4>
+      {{ theme }}
+    </h4>
     <table>
-      <tr>
-        <td v-for="question in questions" :key="question.id">{{question.phrasing}}</td>
+      <tr v-for="question in questions" :key="question.id">
+        <td>{{question.phrasing}}</td>
       </tr>
     </table>
-    <question-form :id_lesson="lesson" @pushQuestion="pushQuestion"/>
+    <question-form :id_lesson="lessonId" @pushQuestion="pushQuestion"/>
   </div>
 </template>
 
@@ -16,17 +19,10 @@ import QuestionForm from "./question-form";
 export default {
   name: "questions-list",
   components: {QuestionForm},
-  props: ['lesson'],
-  /*watch: {
-    lesson: function (){
-      console.log(this.lesson);
-      axios.get('http://localhost:8081/teacher/questions/' + this.lesson)
-          .then(result => this.questions = result.data)
-    }
-  },*/
+  props: ['lessonId', 'theme'],
   created() {
-    console.log(this.lesson);
-    axios.get('http://localhost:8081/teacher/questions/' + this.lesson)
+    console.log(this.lessonId);
+    axios.get('http://localhost:8081/teacher/questions/' + this.lessonId)
         .then(result => this.questions = result.data)
   },
   data() {
