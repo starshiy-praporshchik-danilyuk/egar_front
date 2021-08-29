@@ -1,7 +1,7 @@
 <template>
   <div>
-  <input type="text" v-model="phrasing" />
-  <input type="button" value="Save" @click="save" />
+    <input type="text" v-model="phrasing" />
+    <input type="button" value="Save" @click="save" />
   </div>
 </template>
 

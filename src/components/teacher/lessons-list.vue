@@ -13,7 +13,7 @@
 
 
 <script>
-import LessonRow from "../components/lesson-row";
+import LessonRow from "./lesson-row";
 import LessonForm from "./lesson-form";
 import axios from "axios";
 

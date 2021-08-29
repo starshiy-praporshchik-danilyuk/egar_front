@@ -21,7 +21,7 @@ export default {
   },
   created(){
     axios.get('http://localhost:8081/teacher/students')
-    .then(response => this.students = response.data)/*then(response => console.log(response.data))*/;
+    .then(response => this.students = response.data);
   }
 }
 </script>
